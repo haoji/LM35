@@ -1,7 +1,6 @@
 #include <LM35.h>
 
-#define pinoSensor 0 //Pino analógico em que estará conectado o sensor LM35
-#define TEMPO_ESPERA 1000 //Intervalo entre cada leitura do sensor LM35 em milisegundos! OBS: 1000ms = 1s
+int pinoSensor = A0; //Pino analógico em que estará conectado o sensor LM35
 
 LM35Sensor lm35;
 
@@ -11,6 +10,6 @@ void setup() {
 
 void loop() {
   lm35.read(pinoSensor);
-  Serial.println(lm35.getCelsius());
-  delay(TEMPO_ESPERA);// Espera um tempo determinado em TEMPO_LEITURA (milisegundos)
+  Serial.println(lm35.getCelsius()); // Devolve no console a temperatura em Celsius
+  delay(1000);// Espera um tempo determinado em ms
 }
